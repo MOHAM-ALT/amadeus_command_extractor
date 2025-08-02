@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amadeus Commands Extractor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="icon">🔍</span>
+                    <h1>Amadeus Extractor</h1>
+                </div>
+                <div class="version">v1.0.0</div>
+            </div>
+            <p class="description">استخراج وتوثيق جميع أوامر المساعدة من نظام Amadeus</p>
+        </header>
+
+        <!-- Status Section -->
+        <section class="status-section">
+            <div class="status-card">
+                <div class="status-header">
+                    <span class="status-icon" id="status-icon">⚪</span>
+                    <span class="status-text" id="status-text">جاري التحقق...</span>
+                </div>
+                <div class="status-details" id="status-details">
+                    <div class="detail-item">
+                        <span class="label">الجلسة:</span>
+                        <span class="value" id="session-status">غير معروف</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">الأوامر:</span>
+                        <span class="value" id="commands-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section class="progress-section" id="progress-section" style="display: none;">
+            <div class="progress-card">
+                <div class="progress-header">
+                    <span class="progress-title">التقدم</span>
+                    <span class="progress-percentage" id="progress-percentage">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="progress-details">
+                    <div class="progress-item">
+                        <span class="label">الحالي:</span>
+                        <span class="value" id="current-command">-</span>
+                    </div>
+                    <div class="progress-item">
+                        <span class="label">المعالج:</span>
+                        <span class="value">
+                            <span id="processed-count">0</span> / <span id="total-count">0</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section" id="stats-section" style="display: none;">
+            <div class="stats-grid">
+                <div class="stat-card success">
+                    <div class="stat-number" id="success-count">0</div>
+                    <div class="stat-label">نجح</div>
+                </div>
+                <div class="stat-card failed">
+                    <div class="stat-number" id="failed-count">0</div>
+                    <div class="stat-label">فشل</div>
+                </div>
+                <div class="stat-card rate">
+                    <div class="stat-number" id="success-rate">0%</div>
+                    <div class="stat-label">معدل النجاح</div>
+                </div>
+                <div class="stat-card time">
+                    <div class="stat-number" id="estimated-time">--</div>
+                    <div class="stat-label">الوقت المتبقي</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Controls Section -->
+        <section class="controls-section">
+            <div class="controls-grid">
+                <!-- Main Controls -->
+                <div class="control-group main-controls">
+                    <button class="btn btn-primary" id="start-btn">
+                        <span class="btn-icon">▶️</span>
+                        <span class="btn-text">بدء الاستخراج</span>
+                    </button>
+                    <button class="btn btn-secondary" id="pause-btn" style="display: none;">
+                        <span class="btn-icon">⏸️</span>
+                        <span class="btn-text">إيقاف مؤقت</span>
+                    </button>
+                    <button class="btn btn-danger" id="stop-btn" style="display: none;">
+                        <span class="btn-icon">⏹️</span>
+                        <span class="btn-text">إيقاف</span>
+                    </button>
+                </div>
+
+                <!-- Secondary Controls -->
+                <div class="control-group secondary-controls">
+                    <button class="btn btn-outline" id="test-btn">
+                        <span class="btn-icon">🔍</span>
+                        <span class="btn-text">اختبار الاتصال</span>
+                    </button>
+                    <button class="btn btn-outline" id="settings-btn">
+                        <span class="btn-icon">⚙️</span>
+                        <span class="btn-text">الإعدادات</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Export Section -->
+        <section class="export-section" id="export-section" style="display: none;">
+            <div class="export-card">
+                <h3 class="export-title">
+                    <span class="icon">📥</span>
+                    تصدير النتائج
+                </h3>
+                <div class="export-options">
+                    <button class="btn btn-export" id="export-markdown">
+                        <span class="btn-icon">📄</span>
+                        <span class="btn-text">Markdown</span>
+                    </button>
+                    <button class="btn btn-export" id="export-json">
+                        <span class="btn-icon">📋</span>
+                        <span class="btn-text">JSON</span>
+                    </button>
+                    <button class="btn btn-export" id="export-csv">
+                        <span class="btn-icon">📊</span>
+                        <span class="btn-text">CSV</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Panel -->
+        <section class="settings-panel" id="settings-panel" style="display: none;">
+            <div class="settings-card">
+                <div class="settings-header">
+                    <h3 class="settings-title">
+                        <span class="icon">⚙️</span>
+                        إعدادات الاستخراج
+                    </h3>
+                    <button class="btn-close" id="close-settings">×</button>
+                </div>
+                
+                <div class="settings-content">
+                    <div class="setting-group">
+                        <label class="setting-label">حجم الدفعة</label>
+                        <div class="setting-control">
+                            <input type="range" id="batch-size" min="1" max="10" value="5" class="slider">
+                            <span class="setting-value" id="batch-size-value">5</span>
+                        </div>
+                        <p class="setting-description">عدد الأوامر التي يتم معالجتها في نفس الوقت</p>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-label">التأخير بين الأوامر (ms)</label>
+                        <div class="setting-control">
+                            <input type="range" id="command-delay" min="500" max="5000" value="1000" step="250" class="slider">
+                            <span class="setting-value" id="command-delay-value">1000</span>
+                        </div>
+                        <p class="setting-description">الوقت بين كل أمر والآخر لتجنب إرهاق النظام</p>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-label">التأخير بين الدفعات (ms)</label>
+                        <div class="setting-control">
+                            <input type="range" id="batch-delay" min="1000" max="10000" value="2000" step="500" class="slider">
+                            <span class="setting-value" id="batch-delay-value">2000</span>
+                        </div>
+                        <p class="setting-description">الوقت بين كل دفعة والأخرى</p>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-label">عدد المحاولات</label>
+                        <div class="setting-control">
+                            <input type="range" id="max-retries" min="1" max="5" value="3" class="slider">
+                            <span class="setting-value" id="max-retries-value">3</span>
+                        </div>
+                        <p class="setting-description">عدد المحاولات عند فشل الأمر</p>
+                    </div>
+
+                    <div class="setting-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="skip-errors" checked>
+                            <label for="skip-errors" class="checkbox-label">تخطي الأخطاء والمتابعة</label>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="save-partial" checked>
+                            <label for="save-partial" class="checkbox-label">حفظ النتائج الجزئية</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-actions">
+                    <button class="btn btn-primary" id="save-settings">
+                        <span class="btn-icon">💾</span>
+                        <span class="btn-text">حفظ الإعدادات</span>
+                    </button>
+                    <button class="btn btn-outline" id="reset-settings">
+                        <span class="btn-icon">🔄</span>
+                        <span class="btn-text">إعادة تعيين</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="info-section">
+            <div class="info-card">
+                <div class="info-item">
+                    <span class="info-icon">📋</span>
+                    <div class="info-content">
+                        <span class="info-title">إجمالي الأوامر</span>
+                        <span class="info-description">280+ أمر مساعدة في Amadeus</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🎯</span>
+                    <div class="info-content">
+                        <span class="info-title">هدف المشروع</span>
+                        <span class="info-description">إنشاء دليل شامل لأوامر المساعدة</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">⏱️</span>
+                    <div class="info-content">
+                        <span class="info-title">وقت الاستخراج المتوقع</span>
+                        <span class="info-description">10-15 دقيقة تقريباً</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#" id="help-link">المساعدة</a>
+                    <span class="separator">|</span>
+                    <a href="#" id="about-link">حول المشروع</a>
+                    <span class="separator">|</span>
+                    <a href="#" id="github-link">GitHub</a>
+                </div>
+                <div class="footer-copyright">
+                    <span>مشروع مفتوح المصدر لخدمة مجتمع Amadeus</span>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Notifications -->
+        <div class="notification" id="notification" style="display: none;">
+            <div class="notification-content">
+                <span class="notification-icon" id="notification-icon">ℹ️</span>
+                <span class="notification-text" id="notification-text"></span>
+                <button class="notification-close" id="notification-close">×</button>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loading-overlay" style="display: none;">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <p class="loading-text">جاري المعالجة...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="popup.js"></script>
+</body>
+</html>

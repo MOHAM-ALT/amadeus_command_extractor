@@ -1,0 +1,249 @@
+{
+  "categories": {
+    "core_operations": {
+      "name": "Core Booking & Operations",
+      "name_ar": "العمليات الأساسية والحجوزات",
+      "description": "Basic booking operations, availability, and segment management",
+      "commands": [
+        "HE AN", "HE SS", "HE NN", "HE FF", "HE HL", "HE HN", "HE HK", 
+        "HE SA", "HE SB", "HE SC", "HE SE", "HE SL", "HE SN", "HE SO", 
+        "HE SP", "HE SX"
+      ]
+    },
+    "pricing_fares": {
+      "name": "Pricing & Fares", 
+      "name_ar": "التسعير والأسعار",
+      "description": "Fare calculation, pricing, and TST management",
+      "commands": [
+        "HE FXP", "HE FXX", "HE FXG", "HE FXH", "HE FXK", "HE FXB", 
+        "HE FXL", "HE FXA", "HE FXD", "HE FXE", "HE FXF", "HE FXI", 
+        "HE FXO", "HE FXQ", "HE FXR", "HE FXT", "HE FXU", "HE FXZ"
+      ]
+    },
+    "ticketing_documents": {
+      "name": "Ticketing & Documents",
+      "name_ar": "إصدار التذاكر والوثائق", 
+      "description": "Ticket issuance, EMD, and document management",
+      "commands": [
+        "HE TTP", "HE TTM", "HE TTC", "HE TTD", "HE TTF", "HE TTI", 
+        "HE TTK", "HE TTL", "HE TTN", "HE TTO", "HE TTR", "HE TTS", 
+        "HE TTU", "HE TTW", "HE TTX", "HE TTY", "HE TTZ"
+      ]
+    },
+    "refunds_exchanges": {
+      "name": "Refunds & Exchanges",
+      "name_ar": "المبالغ المستردة والتبديل",
+      "description": "Refund processing, exchanges, and modifications",
+      "commands": [
+        "HE TRF", "HE TRDC", "HE TRDR", "HE TRE", "HE TRI", "HE TRL", 
+        "HE TRM", "HE TRN", "HE TRO", "HE TRP", "HE TRQ", "HE TRR", 
+        "HE TRS", "HE TRT", "HE TRU", "HE TRV", "HE TRW", "HE TRX", 
+        "HE TRY", "HE TRZ"
+      ]
+    },
+    "pnr_management": {
+      "name": "PNR Management",
+      "name_ar": "إدارة ملفات الحجز", 
+      "description": "Passenger name record operations and management",
+      "commands": [
+        "HE NM", "HE NG", "HE NP", "HE NR", "HE NS", "HE NT", 
+        "HE NU", "HE NV", "HE NW", "HE NX", "HE NY", "HE NZ"
+      ]
+    },
+    "contact_information": {
+      "name": "Contact & Information",
+      "name_ar": "معلومات الاتصال",
+      "description": "Contact details, phone, email, and address management", 
+      "commands": [
+        "HE AP", "HE APE", "HE APF", "HE APM", "HE APN", "HE APT", "HE APX"
+      ]
+    },
+    "special_services": {
+      "name": "Special Services",
+      "name_ar": "الخدمات الخاصة",
+      "description": "SSR, seat maps, and special service requests",
+      "commands": [
+        "HE SSR", "HE SR", "HE SM", "HE ST", "HE SK", "HE SVC", "HE SVF"
+      ]
+    },
+    "remarks_information": {
+      "name": "Remarks & Information", 
+      "name_ar": "الملاحظات والمعلومات",
+      "description": "General remarks, notes, and information elements",
+      "commands": [
+        "HE RM", "HE RC", "HE RI", "HE RN", "HE RO", "HE RP", 
+        "HE RQ", "HE RR", "HE RS", "HE RT", "HE RU", "HE RV", 
+        "HE RW", "HE RX", "HE RY", "HE RZ"
+      ]
+    },
+    "payment_financial": {
+      "name": "Payment & Financial",
+      "name_ar": "الدفع والمعاملات المالية",
+      "description": "Forms of payment, commission, and financial operations",
+      "commands": [
+        "HE FP", "HE FA", "HE FB", "HE FC", "HE FD", "HE FE", "HE FG", 
+        "HE FH", "HE FI", "HE FJ", "HE FK", "HE FL", "HE FM", "HE FN", 
+        "HE FO", "HE FQ", "HE FR", "HE FS", "HE FT", "HE FU", "HE FV", 
+        "HE FW", "HE FY"
+      ]
+    },
+    "queue_management": {
+      "name": "Queue Management",
+      "name_ar": "إدارة القوائم",
+      "description": "Queue operations, processing, and workflow management",
+      "commands": [
+        "HE QC", "HE QR", "HE QUE", "HE QA", "HE QB", "HE QD", "HE QE", 
+        "HE QF", "HE QG", "HE QH", "HE QI", "HE QJ", "HE QK", "HE QL", 
+        "HE QM", "HE QN", "HE QO", "HE QP", "HE QQ", "HE QS", "HE QT", 
+        "HE QU", "HE QV", "HE QW", "HE QX", "HE QY", "HE QZ"
+      ]
+    },
+    "other_services": {
+      "name": "Other Services",
+      "name_ar": "خدمات أخرى",
+      "description": "Hotel, car rental, rail, and other travel services",
+      "commands": [
+        "HE HOTEL", "HE CAR", "HE RAIL", "HE CRUISE", "HE TOUR", "HE INS", "HE VISA"
+      ]
+    },
+    "reporting_analysis": {
+      "name": "Reporting & Analysis",
+      "name_ar": "التقارير والتحليل", 
+      "description": "Sales reports, financial analysis, and statistics",
+      "commands": [
+        "HE TJQ", "HE TJS", "HE TJD", "HE TJF", "HE TJI", "HE TJN", "HE TJC", "HE TJT"
+      ]
+    },
+    "system_technical": {
+      "name": "System & Technical",
+      "name_ar": "النظام والتقنيات",
+      "description": "System information, help, and technical operations",
+      "commands": [
+        "HE SYS", "HE HELP", "HE STEPS", "HE UPDATES", "HE TRAINING", "HE GENERAL", 
+        "HE BACK", "HE DIR", "HE NSP", "HE TLA", "HE TCH", "HE EMD", "HE ANC", 
+        "HE ITR", "HE TWD", "HE TWH"
+      ]
+    },
+    "geographic_codes": {
+      "name": "Geographic & Codes",
+      "name_ar": "الرموز الجغرافية والكودات",
+      "description": "City codes, airport codes, and reference information",
+      "commands": [
+        "HE CITY", "HE AIRPORT", "HE AIRLINE", "HE COUNTRY", "HE CURRENCY", 
+        "HE MEAL", "HE PTC", "HE IAD"
+      ]
+    },
+    "error_troubleshooting": {
+      "name": "Error & Troubleshooting", 
+      "name_ar": "الأخطاء وحل المشاكل",
+      "description": "Error messages, warnings, and troubleshooting help",
+      "commands": [
+        "HE ERROR", "HE WARNING", "HE FORMAT", "HE SYNTAX", "HE EXAMPLES"
+      ]
+    }
+  },
+  
+  "command_details": {
+    "HE AN": {
+      "description": "Availability displays and flight search",
+      "description_ar": "عرض الرحلات المتاحة والبحث",
+      "category": "core_operations",
+      "priority": "high",
+      "expected_response_type": "help_documentation"
+    },
+    "HE SS": {
+      "description": "Segment selling and booking operations", 
+      "description_ar": "بيع الرحلات وعمليات الحجز",
+      "category": "core_operations",
+      "priority": "high",
+      "expected_response_type": "help_documentation"
+    },
+    "HE FXP": {
+      "description": "Price PNR and create TST",
+      "description_ar": "تسعير ملف الحجز وإنشاء TST",
+      "category": "pricing_fares", 
+      "priority": "high",
+      "expected_response_type": "help_documentation"
+    },
+    "HE TTP": {
+      "description": "Issue tickets and travel documents",
+      "description_ar": "إصدار التذاكر ووثائق السفر",
+      "category": "ticketing_documents",
+      "priority": "high", 
+      "expected_response_type": "help_documentation"
+    },
+    "HE NM": {
+      "description": "Name elements and passenger information",
+      "description_ar": "عناصر الاسماء ومعلومات المسافرين",
+      "category": "pnr_management",
+      "priority": "high",
+      "expected_response_type": "help_documentation"
+    },
+    "HE AP": {
+      "description": "Contact information and address management", 
+      "description_ar": "معلومات الاتصال وإدارة العناوين",
+      "category": "contact_information",
+      "priority": "medium",
+      "expected_response_type": "help_documentation"
+    },
+    "HE SSR": {
+      "description": "Special service requests",
+      "description_ar": "طلبات الخدمات الخاصة",
+      "category": "special_services",
+      "priority": "medium",
+      "expected_response_type": "help_documentation"
+    },
+    "HE QUE": {
+      "description": "Queue operations and workflow management",
+      "description_ar": "عمليات القوائم وإدارة سير العمل", 
+      "category": "queue_management",
+      "priority": "medium",
+      "expected_response_type": "help_documentation"
+    },
+    "HE HELP": {
+      "description": "General help and assistance",
+      "description_ar": "المساعدة العامة والإرشاد",
+      "category": "system_technical",
+      "priority": "low",
+      "expected_response_type": "help_documentation"
+    }
+  },
+
+  "metadata": {
+    "total_commands": 280,
+    "total_categories": 15,
+    "high_priority_commands": 25,
+    "medium_priority_commands": 85,
+    "low_priority_commands": 170,
+    "last_updated": "2024-01-15",
+    "version": "1.0.0",
+    "source": "Amadeus Selling Platform Documentation",
+    "extraction_order": [
+      "core_operations",
+      "pricing_fares", 
+      "ticketing_documents",
+      "pnr_management",
+      "payment_financial",
+      "queue_management",
+      "special_services",
+      "contact_information",
+      "remarks_information",
+      "refunds_exchanges",
+      "system_technical",
+      "reporting_analysis",
+      "geographic_codes",
+      "other_services",
+      "error_troubleshooting"
+    ]
+  },
+
+  "extraction_settings": {
+    "batch_size": 5,
+    "delay_between_commands": 1000,
+    "delay_between_batches": 2000,
+    "max_retries": 3,
+    "timeout_per_command": 10000,
+    "skip_on_error": false,
+    "save_partial_results": true
+  }
+}

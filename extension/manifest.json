@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "Amadeus Help Commands Extractor",
+  "version": "1.0.0",
+  "description": "استخراج وتوثيق جميع أوامر المساعدة (HE Commands) من نظام Amadeus",
+  
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "downloads"
+  ],
+  
+  "host_permissions": [
+    "https://uat10.resdesktop.altea.amadeus.com/*",
+    "https://*.amadeus.com/*"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "https://uat10.resdesktop.altea.amadeus.com/*",
+        "https://*.amadeus.com/*"
+      ],
+      "js": [
+        "src/session-manager.js",
+        "src/api-client.js", 
+        "src/utils.js",
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Amadeus Commands Extractor",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png", 
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "data/he-commands.json",
+        "data/command-categories.json"
+      ],
+      "matches": [
+        "https://uat10.resdesktop.altea.amadeus.com/*",
+        "https://*.amadeus.com/*"
+      ]
+    }
+  ]
+}
